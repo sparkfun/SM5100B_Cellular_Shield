@@ -19178,6 +19178,7 @@ Standard 5-pin 0.1" header. Use with straight break away headers (SKU : PRT-0011
 <part name="JP7" library="SparkFun-Connectors" deviceset="M02" device="PTH"/>
 <part name="STANDOFF1" library="SparkFun-Electromechanical" deviceset="STAND-OFF" device=""/>
 <part name="STANDOFF2" library="SparkFun-Electromechanical" deviceset="STAND-OFF" device=""/>
+<part name="GND11" library="SparkFun-Aesthetics" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -19189,7 +19190,7 @@ SM5100b over
 Software Serial or UART</text>
 <text x="238.76" y="7.62" size="2.54" layer="94">v13</text>
 <text x="175.26" y="7.62" size="2.54" layer="94">Toni Klopfenstein</text>
-<text x="171.45" y="11.43" size="2.54" layer="94">Nathan Seidle</text>
+<text x="171.45" y="11.43" size="2.54" layer="94">Ryan Owens</text>
 <wire x1="114.3" y1="185.42" x2="116.84" y2="185.42" width="0.2032" layer="97" style="longdash"/>
 <wire x1="116.84" y1="185.42" x2="116.84" y2="124.46" width="0.2032" layer="97" style="longdash"/>
 <wire x1="116.84" y1="124.46" x2="116.84" y2="101.6" width="0.2032" layer="97" style="longdash"/>
@@ -19259,9 +19260,10 @@ Software Serial or UART</text>
 <attribute name="NAME" x="11.43" y="166.1414" size="1.778" layer="95" rot="R180"/>
 <attribute name="VALUE" x="6.35" y="171.958" size="1.778" layer="96"/>
 </instance>
-<instance part="JP7" gate="G$1" x="15.24" y="88.9"/>
+<instance part="JP7" gate="G$1" x="15.24" y="88.9" rot="MR180"/>
 <instance part="STANDOFF1" gate="G$1" x="246.38" y="30.48"/>
 <instance part="STANDOFF2" gate="G$1" x="243.84" y="30.48"/>
+<instance part="GND11" gate="1" x="25.4" y="81.28"/>
 </instances>
 <busses>
 </busses>
@@ -19359,6 +19361,12 @@ Software Serial or UART</text>
 <wire x1="99.06" y1="152.4" x2="99.06" y2="149.86" width="0.1524" layer="91" style="longdash"/>
 <pinref part="GND10" gate="1" pin="GND"/>
 </segment>
+<segment>
+<pinref part="JP7" gate="G$1" pin="2"/>
+<wire x1="22.86" y1="86.36" x2="25.4" y2="86.36" width="0.1524" layer="91"/>
+<wire x1="25.4" y1="86.36" x2="25.4" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="GND11" gate="1" pin="GND"/>
+</segment>
 </net>
 <net name="VCC" class="0">
 <segment>
@@ -19378,9 +19386,6 @@ Software Serial or UART</text>
 <pinref part="U3" gate="G$1" pin="VBAT@1"/>
 <pinref part="U3" gate="G$1" pin="VBAT@2"/>
 <pinref part="U3" gate="G$1" pin="VBAT@3"/>
-<pinref part="JP7" gate="G$1" pin="2"/>
-<wire x1="22.86" y1="91.44" x2="30.48" y2="91.44" width="0.1524" layer="91"/>
-<junction x="30.48" y="91.44"/>
 </segment>
 <segment>
 <wire x1="17.78" y1="27.94" x2="12.7" y2="27.94" width="0.1524" layer="91"/>
