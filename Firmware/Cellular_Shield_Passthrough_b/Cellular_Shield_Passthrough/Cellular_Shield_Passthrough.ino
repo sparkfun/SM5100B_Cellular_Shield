@@ -11,8 +11,9 @@ module are posted in the terminal. More information is found in the sketch comme
 
 An activated SIM card must be inserted into the SIM card holder on the board in order to use the device!
 
-This sketch utilizes the NewSoftSerial library written by Mikal Hart of Arduiniana. The library can be downloaded at this URL:
-http://arduiniana.org/libraries/NewSoftSerial/
+This sketch originally utilized the NewSoftSerial library written by Mikal Hart of Arduiniana. The library can be downloaded at this URL:
+http://arduiniana.org/libraries/NewSoftSerial/. For those using Arduino IDE v1.0+, you will need to use the Software Serial library
+https://www.arduino.cc/en/Reference/softwareSerial.
 
 This code is provided under the Creative Commons Attribution License. More information can be found here:
 http://creativecommons.org/licenses/by/3.0/
@@ -20,12 +21,20 @@ http://creativecommons.org/licenses/by/3.0/
 (Use our code freely! Please just remember to give us credit where it's due. Thanks!)
 */
 
-#include <NewSoftSerial.h>  //Include the NewSoftSerial library to send serial commands to the cellular module.
-#include <string.h>         //Used for string manipulations
+#include <SoftwareSerial.h>  //Include the Software Serial library to send serial commands to the cellular module.
+
+//The following are included in the Arduino IDE v1.8.8 and do not need to be included.
+//If you are having issues compiling, simply uncomment the lines.
+//#include <NewSoftSerial.h>  //Include the NewSoftSerial library to send serial commands to the cellular module.
+//#include <string.h>         //Used for string manipulations
 
 char incoming_char=0;      //Will hold the incoming character from the Serial Port.
 
-NewSoftSerial cell(2,3);  //Create a 'fake' serial port. Pin 2 is the Rx pin, pin 3 is the Tx pin.
+
+SoftwareSerial cell(2,3);  //Create a 'fake' serial port. Pin 2 is the Rx pin, pin 3 is the Tx pin.
+
+//old software serial
+//NewSoftSerial cell(2,3);  //Create a 'fake' serial port. Pin 2 is the Rx pin, pin 3 is the Tx pin.
 
 void setup()
 {
